@@ -1,0 +1,4 @@
+exports.SUPPORT_SURFACE = {
+  SHOULDER: "SHOULDER",
+  WAIST: "WAIST"
+};
