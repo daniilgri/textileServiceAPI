@@ -26,7 +26,7 @@ const ProductSchema = new mongoose.Schema({
       USAGE_TYPES.RITUAL
     ]
   },
-  usageConditions: {
+  usageCondition: {
     type: String,
     required: true,
     trim: true,
@@ -66,6 +66,10 @@ const ProductSchema = new mongoose.Schema({
     required: true,
     trim: true,
     enum: [SUPPORT_SURFACE.SHOULDER, SUPPORT_SURFACE.WAIST]
+  },
+  code: {
+    type: String,
+    required: true
   }
 });
 

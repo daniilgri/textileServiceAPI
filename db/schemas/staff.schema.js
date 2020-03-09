@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const Staff = mongoose.Schema({
+const StaffSchema = mongoose.Schema({
   firstName: {
     type: String,
     required: true
@@ -13,9 +13,13 @@ const Staff = mongoose.Schema({
     type: String,
     required: true
   },
-  specialty: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Specialty",
-    required: true
-  }
+  specialty: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Specialty",
+      required: true
+    }
+  ]
 });
+
+exports.StaffSchema = StaffSchema;

@@ -1,5 +1,0 @@
-exports.AGE_RANGES = {
-  TEENAGER: "TEENAGER",
-  CHILD: "CHILD",
-  ADULT: "ADULT"
-};
