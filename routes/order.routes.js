@@ -34,8 +34,8 @@ class OrderRouter {
 
     this._routes.get("/", async (req, res) => {
       try {
-        await OrderController.getAll();
-        res.status(201).send({});
+        const orders = await OrderController.getAll();
+        res.status(201).send({ orders });
       } catch (error) {
         console.log(error);
         res.status(400).send({ error: error.message });

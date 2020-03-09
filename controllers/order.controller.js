@@ -16,9 +16,35 @@ class OrderController {
   }
 
   static async getAll() {
+    // TODO: minimize populate calls
     const orders = await OrderModel.find({})
-      .populate("product")
-      .populate("department");
+      .populate({
+        path: "product",
+        populate: {
+          path: "materials"
+        }
+      })
+      .populate({
+        path: "product",
+        populate: {
+          path: "ageRange"
+        }
+      })
+      .populate({
+        path: "department",
+        populate: {
+          path: "workers",
+          populate: {
+            path: "specialty"
+          }
+        }
+      })
+      .populate({
+        path: "department",
+        populate: {
+          path: "equipment"
+        }
+      });
     return orders;
   }
 }
