@@ -26,7 +26,9 @@ class DepartmentController {
   static async findByName(name) {
     const departments = await DepartmentModel.find({
       name: { $regex: name, $options: "i" }
-    });
+    })
+      .populate("workers")
+      .populate("equipment");
     return departments;
   }
 }

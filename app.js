@@ -12,6 +12,7 @@ const { equipmentRouter } = require("./routes/equipment.routes");
 const { departmentRouter } = require("./routes/department.routes");
 const { productRouter } = require("./routes/product.routes");
 const { ageRangeRouter } = require("./routes/ageRange.routes");
+const { orderRouter } = require("./routes/order.routes");
 
 config();
 initDBConnection();
@@ -27,5 +28,6 @@ app.use(`${API_V.V1}equipment`, equipmentRouter.getRoutes());
 app.use(`${API_V.V1}department`, departmentRouter.getRoutes());
 app.use(`${API_V.V1}product`, productRouter.getRoutes());
 app.use(`${API_V.V1}age_range`, ageRangeRouter.getRoutes());
+app.use(`${API_V.V1}order`, orderRouter.getRoutes());
 
 app.listen(PORT, port => console.log(`Server is running on port ${PORT}`));

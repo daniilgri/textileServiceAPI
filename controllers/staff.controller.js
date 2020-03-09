@@ -23,11 +23,13 @@ class StaffController {
   }
 
   static async findByQuery(query) {
-    const staff = await StaffModel.find().or([
-      { email: { $regex: query, $options: "i" } },
-      { firstName: { $regex: query, $options: "i" } },
-      { lastName: { $regex: query, $options: "i" } }
-    ]);
+    const staff = await StaffModel.find()
+      .or([
+        { email: { $regex: query, $options: "i" } },
+        { firstName: { $regex: query, $options: "i" } },
+        { lastName: { $regex: query, $options: "i" } }
+      ])
+      .populate("specialty");
     return staff;
   }
 }

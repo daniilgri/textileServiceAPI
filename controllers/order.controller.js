@@ -16,7 +16,9 @@ class OrderController {
   }
 
   static async getAll() {
-    const orders = await OrderModel.find({});
+    const orders = await OrderModel.find({})
+      .populate("product")
+      .populate("department");
     return orders;
   }
 }

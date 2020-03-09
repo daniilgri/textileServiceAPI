@@ -42,7 +42,9 @@ class ProductController {
   static async findByName(name) {
     const products = await ProductModel.find({
       name: { $regex: name, $options: "i" }
-    });
+    })
+      .populate("ageRange")
+      .populate("materials");
     return products;
   }
 }

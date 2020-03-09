@@ -35,8 +35,8 @@ class ProductRouter {
     this._routes.get("/s/", async (req, res) => {
       try {
         const name = req.query.q || "";
-        await ProductController.findByName(name);
-        res.status(201).send({});
+        const products = await ProductController.findByName(name);
+        res.status(201).send({ products });
       } catch (error) {
         console.log(error);
         res.status(400).send({ error: error.message });
